@@ -56,10 +56,10 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-12 font-extrabold text-xl">
           {[
-            { name: "Properties", path: "/" },
-            { name: "About", path: "/about" },
-            { name: "Services", path: "/services" },
-            { name: "Contact", path: "#contact" },
+            { name: "Projects", path: "/" },
+            { name: "About Us", path: "/about" },
+            { name: "Careers", path: "/Careers" },
+            { name: "Contact", path: "/contact" },
           ].map((item) => (
             <Link
               key={item.name}
@@ -106,7 +106,7 @@ const Navbar = () => {
         transition={{ duration: 0.3 }}
       >
         <div className="px-6 pb-6 pt-4 space-y-4">
-          {["Properties", "About", "Services", "Contact"].map((item) => (
+          {["Properties", "About", "Careers", "Contact"].map((item) => (
             <Link
               key={item}
               to={item === "Contact" ? "/#contact" : "/"}
@@ -116,7 +116,7 @@ const Navbar = () => {
               {item}
             </Link>
           ))}
-          <Link to="/#contact" className="premium-btn !px-6 !py-3 !text-xs inline-block mt-2" onClick={() => setMobileOpen(false)}>
+          <Link to="/contact" className="premium-btn !px-6 !py-3 !text-xs inline-block mt-2" onClick={() => setMobileOpen(false)}>
             Inquire
           </Link>
         </div>

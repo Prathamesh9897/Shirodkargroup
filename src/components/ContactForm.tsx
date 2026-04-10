@@ -88,14 +88,12 @@ const ContactForm = () => {
               Begin Your <span className="gold-text italic">Journey</span>
             </h2>
             <p className="text-muted-foreground text-base md:text-lg leading-[1.8] mb-12">
-              Whether you're searching for your dream home or ready to list a distinguished property, our team of luxury specialists is here to guide you every step of the way.
-            </p>
-
+              Whether you have a project in mind or simply want to learn more about what we do, feel free to reach out. Our team is always ready to assist you with expert insights, thoughtful guidance, and the next steps to bring your vision to life            </p>
             <div className="space-y-7">
               {[
-                { icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z", label: "inquiries@aurum.com" },
-                { icon: "M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z", label: "+1 (310) 555-GOLD" },
-                { icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z", label: "9100 Wilshire Blvd, Beverly Hills" },
+                { icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z", label: "Info@shirodkargroup.com" },
+                { icon: "M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z", label: "+91 84510 13335 / 90828 99711 / 89767 08696" },
+                { icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z", label: "5B- Building No-3 , Shreenath Apartment, Chafekar Bandhu Marg, Sane Guruji Nagar, Mulund East, Mumbai, Maharashtra 400081" },
               ].map((item) => (
                 <div key={item.label} className="flex items-center gap-5 group">
                   <div className="w-12 h-12 rounded-xl gold-gradient flex items-center justify-center flex-shrink-0 group-hover:gold-glow transition-shadow duration-500">

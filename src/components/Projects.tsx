@@ -1,10 +1,25 @@
 import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import { properties } from "@/data/properties";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Projects = () => {
+  const location = useLocation();
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      const element = document.getElementById(id);
+
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  }, [location]);
   return (
-    <section className="section-padding bg-gradient-to-b from-background via-secondary/30 to-background">
+    <section className="section-padding bg-gradient-to-b from-background via-secondary/30 to-background" >
       <div className="section-container">
         <motion.div
           className="text-center mb-20 md:mb-24"

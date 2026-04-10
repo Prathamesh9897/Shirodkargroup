@@ -18,7 +18,7 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-semibold mb-5 text-base">Navigate</h4>
             <ul className="space-y-3.5 text-sm text-muted-foreground">
-              {["Properties", "About Us", "Services", "Contact"].map((link) => (
+              {["Projects", "About Us", "Careers", "Contact"].map((link) => (
                 <li key={link}>
                   <a href="#" className="hover:text-foreground transition-colors duration-300 font-body">{link}</a>
                 </li>
@@ -37,7 +37,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-border/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground/70 font-body">
-          <p>© 2026 AURUM Real Estate. All rights reserved.</p>
+          <p>© 2026 Inicious Solutions. All rights reserved.</p>
           <div className="flex gap-8">
             <a href="#" className="hover:text-foreground transition-colors duration-300">Privacy Policy</a>
             <a href="#" className="hover:text-foreground transition-colors duration-300">Terms of Service</a>

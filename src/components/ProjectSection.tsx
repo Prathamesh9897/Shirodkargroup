@@ -1,28 +1,38 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const projects = [
     {
         title: "Current Project",
         description:
             "Explore our ongoing development crafted with modern design, prime location, and premium amenities.",
+        id: "current",
     },
     {
         title: "Launching Project",
         description:
             "Discover our newly launching project offering thoughtfully planned homes and attractive pre-launch benefits.",
+        id: "launching",
     },
     {
         title: "Upcoming Project",
         description:
             "Get ready for our upcoming landmark development designed to redefine urban living.",
+        id: "upcoming",
     },
 ];
 
 const ProjectSection = () => {
+    const navigate = useNavigate();
+
+    const goToSection = (id: string) => {
+        navigate(`/projects#${id}`);
+    };
+
     return (
         <section className="relative py-24">
 
-            {/* Background Image */}
+            {/* Background */}
             <div className="absolute inset-0">
                 <img
                     src="/Image/bg.webp"
@@ -60,7 +70,10 @@ const ProjectSection = () => {
                             </p>
 
                             {/* Button */}
-                            <button className="mt-6 bg-white text-black px-4 py-2 rounded-lg text-sm font-medium">
+                            <button
+                                onClick={() => goToSection(item.id)}
+                                className="mt-6 bg-white text-black px-4 py-2 rounded-lg text-sm font-medium"
+                            >
                                 Explore More
                             </button>
 

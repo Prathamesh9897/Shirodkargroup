@@ -56,7 +56,7 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-12 font-extrabold text-xl">
           {[
-            { name: "Projects", path: "/" },
+            { name: "Projects", path: "/projects" },
             { name: "About Us", path: "/about" },
             { name: "Careers", path: "/Careers" },
             { name: "Contact", path: "/contact" },
@@ -72,7 +72,7 @@ const Navbar = () => {
         </div>
 
         <Link
-          to="/#contact"
+          to="/contact"
           className="hidden md:inline-flex premium-btn !px-7 !py-2.5 !text-xs"
         >
           Inquire
@@ -109,7 +109,7 @@ const Navbar = () => {
           {["Properties", "About", "Careers", "Contact"].map((item) => (
             <Link
               key={item}
-              to={item === "Contact" ? "/#contact" : "/"}
+              to={item === "Contact" ? "/contact" : "/"}
               className="block nav-link py-2"
               onClick={() => setMobileOpen(false)}
             >

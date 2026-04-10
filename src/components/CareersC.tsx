@@ -37,16 +37,25 @@ const CareersC = () => {
     ];
 
     return (
-        <main className="pt-24">
+        <main>
+            <section className="relative h-[60vh] flex items-center justify-center">
+                <img
+                    src="/Image/bg.webp"
+                    className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/40"></div>
+
+                <div className="relative text-center text-white">
+                    <h1 className="text-4xl md:text-6xl font-bold">Careers</h1>
+                    <p className="mt-4 text-lg">Join our team and help build the future of luxury living.</p>
+                </div>
+            </section>
             <section className="max-w-6xl mx-auto px-6 py-20">
 
                 {/* Title */}
-                <div className="text-center mb-16">
-                    <h1 className="text-4xl font-bold">Careers</h1>
-                    <p className="text-muted-foreground mt-4">
-                        Join our team and help build the future of luxury living.
-                    </p>
-                </div>
+
+
+
 
                 {/* Jobs */}
                 <div className="space-y-8">

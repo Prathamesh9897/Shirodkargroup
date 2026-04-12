@@ -26,7 +26,7 @@ export const properties: Property[] = [
     bathrooms: 8,
     sqft: "560- 1746 sq.ft",
     year: 2029,
-    features: ["Cricket/Football Turf", "Rock Climbing Wall", "Senior Citizen Corner", "Toddlers Play Area", "Club House & Banquet", "Garden By The Bay", "Cycle Track", "Music Studio", "Jogging & Pet Track", "Society Office", "Skating Area", "Kids Pool Area", "Swimming Pool", "Fitness Corner", "Reading Corner", "Temple", "Yoga Deck", "Party Lawn", "Shower Area & Changing Room", "Badminton Court", "Board Game Area", "Amphitheatre", "Entrance Lobby", "Flag Pole"],
+    features: ["KITCHEN", "PLUMBING & SANITARY", "DOORS", "WINDOWS", "FLOORING", "WALL AND CEILING FINISHING", "ELEVATORS", "ENTRANCE LOBBY", "BANQUET HALL", "JOGGING TRACK", "YOGA & MEDITATION CENTER", "FITNESS CENTER", "CHILDREN'S PARK", "SENIOR SIT OUT", "CRICKET TURF", "SOLAR POWER", "EV CHARGE SYSTEM"],
     gallery: [
       "/Image/synergy.jpeg",
       "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
@@ -64,7 +64,7 @@ export const properties: Property[] = [
     bathrooms: 5,
     sqft: "8,200",
     year: 2024,
-    features: ["360° Views", "Private Elevator", "Gallery Wall", "Butler's Pantry", "Climate-Controlled Wine Room", "Terrace Garden"],
+    features: ["KITCHEN", "PLUMBING & SANITARY", "360° Views", "Private Elevator", "Gallery Wall", "Butler's Pantry", "Climate-Controlled Wine Room", "Terrace Garden"],
     gallery: [
       "/Image/CV.jpeg",
       "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&h=600&fit=crop",

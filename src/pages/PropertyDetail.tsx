@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useState, Suspense } from "react";
+import { useState, Suspense, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Environment, Float, ContactShadows } from "@react-three/drei";
 import * as THREE from "three";
@@ -10,6 +10,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const PropertyScene = ({ type }: { type: "tower" | "villa" | "highrise" }) => (
+
   <Canvas
     camera={{ position: [0, 2, 5], fov: 50 }}
     dpr={[1, 1.5]}
@@ -30,9 +31,62 @@ const PropertyScene = ({ type }: { type: "tower" | "villa" | "highrise" }) => (
 );
 
 const PropertyDetail = () => {
+  const featureImages: Record<string, string> = {
+    "KITCHEN": "/Image/AMENITIES/Kitchen.png",
+    "PLUMBING & SANITARY": "/Image/AMENITIES/Plumbing.png",
+    "DOORS": "/Image/AMENITIES/Doors.png",
+    "WINDOWS": "/Image/AMENITIES/Windows.png",
+    "FLOORING": "/Image/AMENITIES/Flooring.png",
+    "WALL AND CEILING FINISHING": "/Image/AMENITIES/WallCeling.png",
+    "ELEVATORS": "/Image/AMENITIES/Elevators.png",
+    "ENTRANCE LOBBY": "/Image/AMENITIES/EntryL.png",
+    "BANQUET HALL": "/Image/AMENITIES/BanquetH.png",
+    "JOGGING TRACK": "/Image/AMENITIES/Jogging.png",
+    "YOGA & MEDITATION CENTER": "/Image/AMENITIES/Yoga.png",
+    "FITNESS CENTER": "/Image/AMENITIES/Fitness.png",
+    "CHILDREN'S PARK": "/Image/AMENITIES/ChildrenPark.png",
+    "SENIOR SIT OUT": "/Image/AMENITIES/SeniorSitOut.png",
+    "CRICKET TURF": "/Image/AMENITIES/Cricket.png",
+    "SOLAR POWER": "/Image/AMENITIES/SolarP.png",
+    "EV CHARGE SYSTEM": "/Image/AMENITIES/EVChargeSyatem.png",
+
+
+  }
   const { id } = useParams<{ id: string }>();
   const property = properties.find((p) => p.id === id);
   const [activeImage, setActiveImage] = useState(0);
+  // const [featurePreview, setFeaturePreview] = useState("/Image/AMENITIES/Kitchen.png");
+  // const defaultKey = property.features[0]?.trim().toUpperCase();
+
+  // const [featurePreview, setFeaturePreview] = useState(
+  //   featureImages[defaultKey]
+  // );
+
+  const [featurePreview, setFeaturePreview] = useState(
+    featureImages[property.features[0]?.trim().toUpperCase()]
+  );
+
+  const [autoIndex, setAutoIndex] = useState(0);
+  const [isAuto, setIsAuto] = useState(true);
+
+  useEffect(() => {
+    if (!isAuto) return;
+
+    const interval = setInterval(() => {
+      setAutoIndex((prev) => {
+        const next = (prev + 1) % property.features.length;
+
+        const key = property.features[next]?.trim().toUpperCase();
+        const img = featureImages[key];
+
+        if (img) setFeaturePreview(img);
+
+        return next;
+      });
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isAuto, property.features]);
 
   if (!property) {
     return (
@@ -78,9 +132,8 @@ const PropertyDetail = () => {
                   <button
                     key={i}
                     onClick={() => setActiveImage(i)}
-                    className={`rounded-xl overflow-hidden aspect-[4/3] border-2 transition-all duration-300 ${
-                      activeImage === i ? "border-primary gold-glow" : "border-transparent opacity-50 hover:opacity-100"
-                    }`}
+                    className={`rounded-xl overflow-hidden aspect-[4/3] border-2 transition-all duration-300 ${activeImage === i ? "border-primary gold-glow" : "border-transparent opacity-50 hover:opacity-100"
+                      }`}
                   >
                     <img src={img} alt="" className="w-full h-full object-cover" />
                   </button>
@@ -111,18 +164,79 @@ const PropertyDetail = () => {
               </div>
 
               {/* Features */}
-              <h3 className="text-lg font-display font-semibold mb-4">Features</h3>
+              <h3 className="text-lg font-display font-semibold mb-4">
+                Amenities
+              </h3>
+              {featurePreview && (
+                <motion.div
+                  className="mt-6 rounded-xl overflow-hidden "
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  <img src={featurePreview} className="w-full h-[400px] object-contain " />
+                </motion.div>
+              )}
               <div className="flex flex-wrap gap-2 mb-10">
-                {property.features.map((f) => (
+                {/* {property.features.map((f) => (
                   <span key={f} className="px-4 py-2 rounded-full bg-secondary/60 border border-border/50 text-sm text-muted-foreground font-body">
+                    {f}
+                  </span>
+                ))} */}
+
+                {/* {property.features.map((f) => (
+                  <span
+                    key={f}
+                    onMouseEnter={() => {
+                      const key = f.trim().toUpperCase();
+                      const img = featureImages[key];
+                      if (img) setFeaturePreview(img);
+                    }}
+                    onMouseLeave={() => {
+                      setFeaturePreview(null);
+                    }}
+                    className="cursor-pointer px-4 py-2 rounded-full bg-secondary/60 border border-border/50 text-sm text-muted-foreground font-body hover:bg-primary hover:text-white transition"
+                  >
+                    {f}
+                  </span>
+                ))} */}
+
+
+                {/* {property.features.map((f) => (
+                  <span
+                    key={f}
+                    onClick={() => {
+                      const key = f.trim().toUpperCase();
+                      const img = featureImages[key];
+                      if (img) setFeaturePreview(img);
+                    }}
+                    className="cursor-pointer px-4 py-2 rounded-full bg-secondary/60 border border-border/50 text-sm text-muted-foreground font-body hover:bg-primary hover:text-white transition"
+                  >
+                    {f}
+                  </span>
+                ))} */}
+
+                {property.features.map((f) => (
+                  <span
+                    key={f}
+                    onClick={() => {
+                      const key = f.trim().toUpperCase();
+                      const img = featureImages[key];
+
+                      if (img) {
+                        setFeaturePreview(img);
+                        setIsAuto(false); // 🚨 stop auto when user clicks
+                      }
+                    }}
+                    className="cursor-pointer px-4 py-2 rounded-full border text-sm transition hover:bg-primary hover:text-white"
+                  >
                     {f}
                   </span>
                 ))}
               </div>
 
-              <button className="premium-btn gold-glow w-full md:w-auto">
+              {/* <button className="premium-btn gold-glow w-full md:w-auto">
                 Schedule a Viewing
-              </button>
+              </button> */}
             </motion.div>
           </div>
         </div>

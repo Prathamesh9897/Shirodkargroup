@@ -111,7 +111,7 @@ const ContactForm = () => {
           <motion.form
             //action="https://formsubmit.co/khadtprathamesh@gmail.com" method="POST"
             onSubmit={handleSubmit}
-            className="p-8 md:p-10 lg:p-12 rounded-3xl bg-card border border-border premium-shadow-lg"
+            className="p-8 md:p-10 lg:p-12 rounded-3xl bg-white/40 backdrop-blur-md border border-white/20 premium-shadow-lg"
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}

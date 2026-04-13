@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero3D from "@/components/Hero3D";
+import Scene from "@/components/Scene";
 import ScrollSections from "@/components/ScrollSections";
 import Projects from "@/components/Projects";
 import Testimonials from "@/components/Testimonials";
@@ -32,27 +33,28 @@ const Index = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+      className="bg-[#FAF7F2]" 
     >
       <Navbar />
 
-      {/* Fixed 3D background */}
-      <div className="fixed inset-0 z-0">
-        <Hero3D scrollProgress={progress} />
+      {/* Global Fixed 3D background */}
+      <div className="fixed inset-0 z-0 overflow-hidden outline-none" style={{ pointerEvents: "auto" }}>
+        <Scene scrollProgress={progress} />
       </div>
 
-      {/* Scrollable content */}
-      <div className="relative z-10">
-        <div className="h-screen" />
+      {/* Scrollable content wrapper */}
+      <div className="relative z-10 w-full overflow-x-hidden pointer-events-none">
+        <Hero3D scrollProgress={progress} />
 
-        <div className="bg-background relative">
-          {/* Top fade */}
-          <div className="absolute -top-32 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-background pointer-events-none" />
-
-          <ScrollSections />
-          <Projects />
-          <ProjectSection />
-          <Testimonials />
-          <ContactForm />
+        {/* Semi-transparent section wrapper to keep 3D model globally visible */}
+        <div className="relative z-10 bg-[#FAF7F2]/40 backdrop-blur-[6px] pointer-events-auto border-t border-white/15">
+          <div className="max-w-7xl mx-auto">
+            <ScrollSections />
+            <Projects />
+            <ProjectSection />
+            <Testimonials />
+            <ContactForm />
+          </div>
           <Footer />
         </div>
       </div>

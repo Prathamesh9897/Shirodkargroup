@@ -32,13 +32,13 @@ const ProjectSection = () => {
     return (
         <section className="relative py-24">
 
-            {/* Background */}
+            {/* Semi-transparent background overlay */}
             <div className="absolute inset-0">
                 <img
                     src="/Image/bg.webp"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover opacity-30" 
                 />
-                <div className="absolute inset-0 bg-black/30"></div>
+                <div className="absolute inset-0 bg-[#FAF7F2]/20 backdrop-blur-sm"></div>
             </div>
 
             {/* Content */}

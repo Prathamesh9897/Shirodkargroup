@@ -19,7 +19,7 @@ const Projects = () => {
     }
   }, [location]);
   return (
-    <section className="section-padding bg-gradient-to-b from-background via-secondary/30 to-background" >
+    <section className="section-padding bg-gradient-to-b from-[#FAF7F2]/10 via-[#FAF7F2]/20 to-[#FAF7F2]/10" >
       <div className="section-container">
         <motion.div
           className="text-center mb-20 md:mb-24"
